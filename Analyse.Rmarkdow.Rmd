@@ -28,4 +28,84 @@ head(data)
 ```{r}
 summary(data)
 ```
+```{r}
+str(TitanicSurvival)
+```
+```{r}
+nrow(TitanicSurvival)
+
+ncol(TitanicSurvival)
+
+table(TitanicSurvival$survived)
+
+table(TitanicSurvival$sex)
+
+table(TitanicSurvival$passengerClass)
+
+mean(TitanicSurvival$age, na.rm = TRUE)
+
+median(TitanicSurvival$age, na.rm = TRUE)
+```
+```{r}
+library(ggplot2)
+
+ggplot(TitanicSurvival, aes(x = sex, fill = survived)) +
+  geom_bar(position = "dodge") +
+  labs(
+    title = "Survie des passagers selon le sexe",
+    x = "Sexe",
+    y = "Nombre de passagers",
+    fill = "Survie"
+  ) +
+  theme_minimal()
+```
+## Répartition des survivants selon le sexe
+
+Le graphique permet de comparer le nombre de survivants et de non-survivants selon le sexe.
+
+On observe que les femmes ont eu davantage de chances de survivre que les hommes. Une proportion importante des hommes n'a pas survécu au naufrage.
+
+Cela montre que le sexe a été un facteur important dans les chances de survie lors du naufrage du Titanic.
+
+```{r}
+ggplot(TitanicSurvival, aes(x = passengerClass, fill = survived)) +
+  geom_bar(position = "dodge") +
+  labs(
+    title = "Survie des passagers selon leur classe",
+    x = "Classe du passager",
+    y = "Nombre de passagers",
+    fill = "Survie"
+  ) +
+  theme_minimal()
+```
+## Répartition des survivants selon la classe
+
+Le graphique montre que la classe du passager semble avoir influencé ses chances de survie.
+
+Les passagers de première classe ont généralement eu davantage de chances de survivre que ceux de deuxième et troisième classe.
+
+Les passagers de troisième classe semblent avoir été plus nombreux à ne pas survivre.
+
+On peut donc constater une différence de survie selon la classe sociale des passagers.
+
+```{r}
+ggplot(TitanicSurvival, aes(x = survived, y = age, fill = survived)) +
+  geom_boxplot(na.rm = TRUE) +
+  labs(
+    title = "Distribution de l'âge selon la survie",
+    x = "Survie",
+    y = "Âge",
+    fill = "Survie"
+  ) +
+  theme_minimal()
+```
+## Distribution de l'âge selon la survie
+
+Le diagramme en boîte permet de comparer les âges des passagers ayant survécu et de ceux qui n'ont pas survécu.
+
+Il permet d'observer la médiane, la dispersion des âges ainsi que les éventuelles valeurs atypiques.
+
+On peut ainsi déterminer si l'âge a pu avoir une influence sur les chances de survie des passagers.
+
+Les enfants ont notamment pu bénéficier d'une priorité lors de l'évacuation du Titanic.
 
