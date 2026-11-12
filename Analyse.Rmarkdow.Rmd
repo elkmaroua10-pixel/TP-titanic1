@@ -1,0 +1,31 @@
+---
+title: "Analyse.Rmarkdown"
+author: "Maroua El Kaddouri"
+date: "2026-11-12"
+output: html_document
+---
+
+## TP Analyse
+
+# Présenation jeu de données
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(carData)
+```
+
+```{r}
+data<-TitanicSurvival
+```
+
+```{r}
+head(data)
+```
+```{r}
+summary(data)
+```
+
