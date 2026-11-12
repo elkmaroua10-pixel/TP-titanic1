@@ -59,6 +59,7 @@ ggplot(TitanicSurvival, aes(x = sex, fill = survived)) +
   ) +
   theme_minimal()
 ```
+
 ## Répartition des survivants selon le sexe
 
 Le graphique permet de comparer le nombre de survivants et de non-survivants selon le sexe.
@@ -78,6 +79,7 @@ ggplot(TitanicSurvival, aes(x = passengerClass, fill = survived)) +
   ) +
   theme_minimal()
 ```
+
 ## Répartition des survivants selon la classe
 
 Le graphique montre que la classe du passager semble avoir influencé ses chances de survie.
@@ -99,6 +101,7 @@ ggplot(TitanicSurvival, aes(x = survived, y = age, fill = survived)) +
   ) +
   theme_minimal()
 ```
+
 ## Distribution de l'âge selon la survie
 
 Le diagramme en boîte permet de comparer les âges des passagers ayant survécu et de ceux qui n'ont pas survécu.
@@ -109,3 +112,18 @@ On peut ainsi déterminer si l'âge a pu avoir une influence sur les chances de 
 
 Les enfants ont notamment pu bénéficier d'une priorité lors de l'évacuation du Titanic.
 
+```{r}
+library(TitanicPackage)
+```
+
+```{r}
+taux_survie(data, "sex")
+```
+On observe une différence importante entre les femmes et les hommes. Le taux de survie des femmes est d'environ 72,75 %, contre seulement 19,10 % pour les hommes. Cela montre que les femmes ont eu beaucoup plus de chances de survivre au naufrage du Titanic que les hommes. Le sexe semble donc être un facteur déterminant dans les chances de survie.
+
+```{r}
+taux_survie(data,"passengerClass")
+```
+On constate que le taux de survie diminue en fonction de la classe du passager. Les passagers de première classe ont le taux de survie le plus élevé avec 61,92 %, suivis de ceux de deuxième classe avec 42,96 %. Enfin, les passagers de troisième classe ont le taux de survie le plus faible avec 25,53 %. Cela suggère que les passagers voyageant dans les classes supérieures avaient davantage de chances de survivre.
+
+Petite conclusion générale : Ces deux résultats montrent que les chances de survie sur le Titanic dépendaient notamment du sexe et de la classe sociale : les femmes et les passagers des classes supérieures étaient davantage favorisés.
